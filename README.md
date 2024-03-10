@@ -1,1 +1,1 @@
-# template-repo-for-js-tasks
+goit-js-hw-08
