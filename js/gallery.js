@@ -85,8 +85,6 @@ gallery.insertAdjacentHTML('beforeend', imageItem);
 
 gallery.addEventListener('click', onImageClick);
 
-// let instance;
-
 function onImageClick(event) {
   event.preventDefault();
 
