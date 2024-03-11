@@ -86,6 +86,35 @@ const images = [
   gallery.addEventListener("click",onImageClick);
   
   function onImageClick(event) {
-      event.preventDefault();
-      console.log(event.target.dataset.source);
-  };
+    event.preventDefault();
+  
+    const imageClick = event.target.dataset.source;
+  
+    console.log(imageClick);
+  
+    if (event.target.nodeName !== "img") {
+      return;
+    }
+  
+  const instance = basicLightbox.create(`<img src="${imageClick}">`,
+  {
+      onShow: instance => {
+          if(event.target.nodeName === "img"){
+              instance.show();
+          }
+          imageItem.addEventListener("click",onImageClick)
+      },
+      onClose: instance => {
+          if(event.target.nodeName === "escape"){
+              instance.close();
+          }
+          imageItem.removeEventListerner("keydown");
+      }
+  
+  
+      
+  }
+  )
+  instance.show();
+   
+  }

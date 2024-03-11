@@ -1,3 +1,7 @@
+body{
+    background-color: #F5F5F5;
+}
+
 .gallery{
     display: flex;
     flex-wrap: wrap;
@@ -6,8 +10,13 @@
     list-style-type: none;
 }
 
-
 .gallery-image{
+    display: block;
     width: 360px;
     height: 300px;
+    transition: transform 250ms;
+}
+
+.gallery-image:hover{
+    transform: scale(1.1);
 }
