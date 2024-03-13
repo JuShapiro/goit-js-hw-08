@@ -96,16 +96,16 @@ function onImageClick(event) {
 
   const instance = basicLightbox.create(`<img src="${imageClick}">`, {
     onShow: () => {
-      document.addEventListener('keydown', onEscClick);
+      document.addEventListener('keydown', onEscKeyPress);
     },
     onClose: () => {
-      document.removeEventListener('keydown', onEscClick);
+      document.removeEventListener('keydown', onEscKeyPress);
     },
   });
 
   instance.show();
 
-  function onEscClick(event) {
+  function onEscKeyPress(event) {
     if (event.code === 'Escape') {
       instance.close();
     }
