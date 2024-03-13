@@ -85,7 +85,6 @@ gallery.insertAdjacentHTML('beforeend', imageItem);
 
 gallery.addEventListener('click', onImageClick);
 
-// let instance;
 
 function onImageClick(event) {
   event.preventDefault();
@@ -96,18 +95,18 @@ function onImageClick(event) {
 
   const imageClick = event.target.dataset.source;
 
-  const instance = basicLightbox.create(`<img src="${imageClick}">`, {
+  const instance = basicLightbox.create(`<img src="${imageClick}" width="970" heigth="645">`, {
     onShow: () => {
-      document.addEventListener('keydown', onEscClick);
+      document.addEventListener('keydown', onEscKeyPress);
     },
     onClose: () => {
-      document.removeEventListener('keydown', onEscClick);
+      document.removeEventListener('keydown', onEscKeyPress);
     },
   });
 
   instance.show();
 
-  function onEscClick(event) {
+  function onEscKeyPress(event) {
     if (event.code === 'Escape') {
       instance.close();
     }
